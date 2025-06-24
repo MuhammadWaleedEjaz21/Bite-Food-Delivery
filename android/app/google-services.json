@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "207014988465",
+    "project_id": "bite-food-delivery-e3edf",
+    "storage_bucket": "bite-food-delivery-e3edf.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:207014988465:android:492e4765c8d62ff1b3f090",
+        "android_client_info": {
+          "package_name": "com.example.bite"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6C7xbKXdEHgw1eMt34EqdYA42BC-slDo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
