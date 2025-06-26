@@ -9,7 +9,7 @@ class CategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 100.h,
+      height: 120.h,
       width: 120.w,
       child: Column(
         children: [

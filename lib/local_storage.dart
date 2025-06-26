@@ -1,7 +1,7 @@
 import 'package:bite/Models/category_model.dart';
 import 'package:bite/firebase_conn.dart';
 
-class Localstorage {
+class LocalStorage {
   List<CategoryModel> localCategories = [
     CategoryModel(
       name: 'Burger',

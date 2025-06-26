@@ -2,7 +2,7 @@ import 'package:bite/Controllers/home_controller.dart';
 import 'package:bite/Widgets/category_card.dart';
 import 'package:bite/Widgets/custom_app_bar.dart';
 import 'package:bite/Widgets/custom_header_tile.dart';
-import 'package:bite/localStorage.dart';
+import 'package:bite/Widgets/restaurant_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -54,15 +54,15 @@ class HomeScreen extends StatelessWidget {
           15.horizontalSpace,
         ],
       ),
-      body: FutureBuilder(
-        future: controller.data,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
-          } else {
-            return Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15.w),
-              child: ListView(
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 15.w),
+        child: FutureBuilder(
+          future: controller.categorydata,
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(child: CircularProgressIndicator());
+            } else {
+              return ListView(
                 children: [
                   15.verticalSpace,
                   Row(
@@ -103,16 +103,25 @@ class HomeScreen extends StatelessWidget {
                     height: 120.h,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
-                      itemCount: 2,
+                      itemCount: 3,
                       itemBuilder: (context, index) =>
-                          CategoryCard(model: (snapshot.data as List)[index]),
+                          CategoryCard(model: controller.categorylist[index]),
                     ),
                   ),
+                  10.verticalSpace,
+                  CustomHeaderTile(title: 'All Restaurants'),
+                  10.verticalSpace,
+                  ListView.builder(
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemCount: 3,
+                    itemBuilder: (context, index) => RestaurantCard(),
+                  ),
                 ],
-              ),
-            );
-          }
-        },
+              );
+            }
+          },
+        ),
       ),
     );
   }
