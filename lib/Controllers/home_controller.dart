@@ -3,7 +3,7 @@ import 'package:bite/firebase_conn.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
-  late Future<void> categorydata;
+  late final Future<void> categorydata;
   RxList<CategoryModel> categorylist = <CategoryModel>[].obs;
   @override
   void onInit() {
@@ -16,10 +16,16 @@ class HomeController extends GetxController {
     final snapshot = await db.get();
     categorylist.clear();
     for (var doc in snapshot.docs) {
-      final category = CategoryModel.fromJson(
-        doc.data() as Map<String, dynamic>,
-      );
-      categorylist.add(category);
+      final data = doc.data();
+      if (data is Map<String, dynamic>) {
+        final category = CategoryModel.fromJson(data);
+        categorylist.add(category);
+      }
     }
+  }
+
+  Future<void> refreshCategories() async {
+    await fetchcategories();
+    update();
   }
 }

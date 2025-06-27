@@ -41,47 +41,47 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAGh2SG8NbDMhWEtuHNLDRrMK7I6tlSceA',
-    appId: '1:579293461649:web:f83fa535591663a1f1d330',
-    messagingSenderId: '579293461649',
-    projectId: 'bite-food-delivery-11be9',
-    authDomain: 'bite-food-delivery-11be9.firebaseapp.com',
-    storageBucket: 'bite-food-delivery-11be9.firebasestorage.app',
+    apiKey: 'AIzaSyBdJVKGZZiJk1i5e2UYGnJpswSY1R4VWKQ',
+    appId: '1:460586379661:web:121c1fed32149dce8775c4',
+    messagingSenderId: '460586379661',
+    projectId: 'bite-food-delivery-9e368',
+    authDomain: 'bite-food-delivery-9e368.firebaseapp.com',
+    storageBucket: 'bite-food-delivery-9e368.firebasestorage.app',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBskZ81CnJ1Ne4t4IXIIjIooZsGMJtQb6M',
-    appId: '1:579293461649:android:432ae11a0d1b1132f1d330',
-    messagingSenderId: '579293461649',
-    projectId: 'bite-food-delivery-11be9',
-    storageBucket: 'bite-food-delivery-11be9.firebasestorage.app',
+    apiKey: 'AIzaSyD7Vn-9QDwFIrjI0aBjd81xRfi7G7N-rns',
+    appId: '1:460586379661:android:b3aacaef90c2a7af8775c4',
+    messagingSenderId: '460586379661',
+    projectId: 'bite-food-delivery-9e368',
+    storageBucket: 'bite-food-delivery-9e368.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyA3WoALVAky9zOUHqK-_Kt1hmZ5dMJiN1s',
-    appId: '1:579293461649:ios:339828399f9b7f65f1d330',
-    messagingSenderId: '579293461649',
-    projectId: 'bite-food-delivery-11be9',
-    storageBucket: 'bite-food-delivery-11be9.firebasestorage.app',
+    apiKey: 'AIzaSyBQceNpPpmpXLr0asTGPbfGHB0remZ4_GE',
+    appId: '1:460586379661:ios:046693f4214b85188775c4',
+    messagingSenderId: '460586379661',
+    projectId: 'bite-food-delivery-9e368',
+    storageBucket: 'bite-food-delivery-9e368.firebasestorage.app',
     iosBundleId: 'com.example.bite',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyA3WoALVAky9zOUHqK-_Kt1hmZ5dMJiN1s',
-    appId: '1:579293461649:ios:339828399f9b7f65f1d330',
-    messagingSenderId: '579293461649',
-    projectId: 'bite-food-delivery-11be9',
-    storageBucket: 'bite-food-delivery-11be9.firebasestorage.app',
+    apiKey: 'AIzaSyBQceNpPpmpXLr0asTGPbfGHB0remZ4_GE',
+    appId: '1:460586379661:ios:046693f4214b85188775c4',
+    messagingSenderId: '460586379661',
+    projectId: 'bite-food-delivery-9e368',
+    storageBucket: 'bite-food-delivery-9e368.firebasestorage.app',
     iosBundleId: 'com.example.bite',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyAGh2SG8NbDMhWEtuHNLDRrMK7I6tlSceA',
-    appId: '1:579293461649:web:bdd1a29dab1ec256f1d330',
-    messagingSenderId: '579293461649',
-    projectId: 'bite-food-delivery-11be9',
-    authDomain: 'bite-food-delivery-11be9.firebaseapp.com',
-    storageBucket: 'bite-food-delivery-11be9.firebasestorage.app',
+    apiKey: 'AIzaSyBdJVKGZZiJk1i5e2UYGnJpswSY1R4VWKQ',
+    appId: '1:460586379661:web:e7becda99be413ec8775c4',
+    messagingSenderId: '460586379661',
+    projectId: 'bite-food-delivery-9e368',
+    authDomain: 'bite-food-delivery-9e368.firebaseapp.com',
+    storageBucket: 'bite-food-delivery-9e368.firebasestorage.app',
   );
 
 }
