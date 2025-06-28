@@ -1,9 +1,11 @@
+import 'package:bite/Models/restaurant_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class RestaurantCard extends StatelessWidget {
-  const RestaurantCard({super.key});
+  final RestaurantModel model;
+  const RestaurantCard({required this.model,super.key});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -16,7 +18,7 @@ class RestaurantCard extends StatelessWidget {
             Container(
               height: 150.h,
               decoration: BoxDecoration(
-                color: Colors.blue,
+                image: DecorationImage(image: AssetImage(model.imageUrl),fit: BoxFit.cover),
                 borderRadius: BorderRadius.circular(20.r),
               ),
             ),
@@ -26,13 +28,13 @@ class RestaurantCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Restaurant',
+                    model.name,
                     style: GoogleFonts.sen(
                       fontSize: 25.sp,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Text('Category', style: GoogleFonts.sen(fontSize: 15.sp)),
+                  Text(model.category, style: GoogleFonts.sen(fontSize: 15.sp)),
                   5.verticalSpace,
                   Row(
                     children: [
@@ -43,7 +45,7 @@ class RestaurantCard extends StatelessWidget {
                       ),
                       2.horizontalSpace,
                       Text(
-                        '4.7',
+                        '${model.rating}',
                         style: GoogleFonts.sen(
                           fontSize: 15.sp,
                           fontWeight: FontWeight.bold,
@@ -56,7 +58,7 @@ class RestaurantCard extends StatelessWidget {
                         size: 25.r,
                       ),
                       2.horizontalSpace,
-                      Text('Rs 59', style: GoogleFonts.sen(fontSize: 15.sp)),
+                      Text('Rs ${model.delivery}', style: GoogleFonts.sen(fontSize: 15.sp)),
                       15.horizontalSpace,
                       Icon(
                         Icons.timelapse_outlined,
@@ -64,7 +66,7 @@ class RestaurantCard extends StatelessWidget {
                         size: 25.r,
                       ),
                       2.horizontalSpace,
-                      Text('20 min', style: GoogleFonts.sen(fontSize: 15.sp)),
+                      Text('${model.time} min', style: GoogleFonts.sen(fontSize: 15.sp)),
                     ],
                   ),
                 ],

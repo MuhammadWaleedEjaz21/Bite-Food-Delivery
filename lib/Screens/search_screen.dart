@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../Models/restaurant_model.dart';
+
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
 
@@ -80,7 +82,10 @@ class SearchScreen extends StatelessWidget {
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
               itemCount: 3,
-              itemBuilder: (context, index) => RestaurantCard(),
+              itemBuilder: (context, index) {
+                final restaurant = RestaurantModel(name: 'Restaurant $index', imageUrl: 'assets/images/restaurants/broadway_pizza.jpg', category: 'Pizza', rating: 4.4, delivery: 49, time: 30);
+                return RestaurantCard(model: restaurant);
+              },
             ),
           ],
         ),

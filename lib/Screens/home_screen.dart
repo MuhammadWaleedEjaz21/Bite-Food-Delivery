@@ -116,8 +116,8 @@ class HomeScreen extends StatelessWidget {
                     ListView.builder(
                       shrinkWrap: true,
                       physics: NeverScrollableScrollPhysics(),
-                      itemCount: 3,
-                      itemBuilder: (context, index) => RestaurantCard(),
+                      itemCount: 10,
+                      itemBuilder: (context, index) => RestaurantCard(model: controller.restaurantlist[index],),
                     ),
                   ],
                 );

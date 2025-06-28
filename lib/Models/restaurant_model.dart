@@ -4,6 +4,7 @@ class RestaurantModel {
   final String category;
   final double rating;
   final int delivery;
+  final  int time;
 
   const RestaurantModel({
     required this.name,
@@ -11,6 +12,7 @@ class RestaurantModel {
     required this.category,
     required this.rating,
     required this.delivery,
+    required this.time,
   });
 
   factory RestaurantModel.fromJson(Map<String, dynamic> json) {
@@ -20,6 +22,7 @@ class RestaurantModel {
       category: json['category'],
       rating: json['rating'].toDouble(),
       delivery: json['delivery'],
+      time: json['time']
     );
   }
   Map<String, dynamic> toJson() {
@@ -29,6 +32,7 @@ class RestaurantModel {
       'category': category,
       'rating': rating,
       'delivery': delivery,
+      'time' : time
     };
   }
 }
