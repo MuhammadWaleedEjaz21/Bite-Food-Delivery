@@ -3,7 +3,6 @@ import 'package:bite/Screens/account_screen.dart';
 import 'package:bite/Screens/home_screen.dart';
 import 'package:bite/Screens/search_screen.dart';
 import 'package:bite/Widgets/custom_bottom_navigation_bar.dart';
-import 'package:bite/local_storage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,7 +14,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   Get.put(HomeController());
-  Get.put(LocalStorage());
   Get.put(CustomNavigationBarController());
   runApp(MyApp());
 }
