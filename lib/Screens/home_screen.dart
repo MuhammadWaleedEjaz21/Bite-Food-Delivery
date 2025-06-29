@@ -4,7 +4,6 @@ import 'package:bite/Widgets/custom_app_bar.dart';
 import 'package:bite/Widgets/custom_header_tile.dart';
 import 'package:bite/Widgets/custom_search_bar.dart';
 import 'package:bite/Widgets/restaurant_card.dart';
-import 'package:bite/local_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -15,7 +14,6 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<HomeController>();
-    final local = Get.find<LocalStorage>();
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: CustomAppBar(
@@ -52,9 +50,7 @@ class HomeScreen extends StatelessWidget {
                 size: 30.sp,
               ),
             ),
-            onPressed: () async {
-              await local.addData();
-            },
+            onPressed: () async {},
           ),
           15.horizontalSpace,
         ],
@@ -117,7 +113,9 @@ class HomeScreen extends StatelessWidget {
                       shrinkWrap: true,
                       physics: NeverScrollableScrollPhysics(),
                       itemCount: 10,
-                      itemBuilder: (context, index) => RestaurantCard(model: controller.restaurantlist[index]),
+                      itemBuilder: (context, index) => RestaurantCard(
+                        model: controller.restaurantlist[index],
+                      ),
                     ),
                   ],
                 );

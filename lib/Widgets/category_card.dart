@@ -19,7 +19,7 @@ class CategoryCard extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.r),
               image: DecorationImage(
-                image: AssetImage(model.imageUrl),
+                image: NetworkImage(model.imageUrl),
                 fit: BoxFit.cover,
               ),
             ),

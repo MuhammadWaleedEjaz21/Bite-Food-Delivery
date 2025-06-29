@@ -24,6 +24,9 @@ class AccountScreen extends StatelessWidget {
           15.horizontalSpace,
         ],
       ),
+      body: ListView(children: [
+        ]
+      ),
     );
   }
 }
