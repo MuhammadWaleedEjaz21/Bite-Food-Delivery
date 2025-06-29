@@ -117,7 +117,7 @@ class HomeScreen extends StatelessWidget {
                       shrinkWrap: true,
                       physics: NeverScrollableScrollPhysics(),
                       itemCount: 10,
-                      itemBuilder: (context, index) => RestaurantCard(model: controller.restaurantlist[index],),
+                      itemBuilder: (context, index) => RestaurantCard(model: controller.restaurantlist[index]),
                     ),
                   ],
                 );
