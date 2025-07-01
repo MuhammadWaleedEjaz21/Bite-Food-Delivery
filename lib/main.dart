@@ -1,10 +1,11 @@
+import 'package:bite_food_delivery/Screens/account_screen.dart';
+import 'package:bite_food_delivery/Screens/home_screen.dart';
+import 'package:bite_food_delivery/Screens/search_screen.dart';
 import 'package:bite_food_delivery/Widgets/custom_bottom_bar.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:stylish_bottom_bar/stylish_bottom_bar.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,6 +19,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<BottomBarController>();
+    final List<Widget> screens = [
+      HomeScreen(),
+      SearchScreen(),
+      AccountScreen(),
+    ];
     return ScreenUtilInit(
       designSize: Size(375, 812),
       minTextAdapt: true,
@@ -26,29 +32,23 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: Obx(
           () => Scaffold(
-            body: Container(),
+            body: screens[controller.currentIndex.value],
             bottomNavigationBar: CustomBottomBar(
               items: [
-                BottomBarItem(
-                  icon: Icon(Icons.home),
-                  title: Text('Home', style: GoogleFonts.sen()),
-                  selectedIcon: Icon(Icons.home_filled),
-                  selectedColor: Colors.orange,
-                  unSelectedColor: Colors.grey,
+                CustomBottomBar.customBottomItem(
+                  Icons.home_outlined,
+                  'Home',
+                  Icons.home,
                 ),
-                BottomBarItem(
-                  icon: Icon(Icons.search),
-                  title: Text('Search', style: GoogleFonts.sen()),
-                  selectedIcon: Icon(Icons.search_rounded),
-                  selectedColor: Colors.orange,
-                  unSelectedColor: Colors.grey,
+                CustomBottomBar.customBottomItem(
+                  Icons.search_outlined,
+                  'Search',
+                  Icons.search,
                 ),
-                BottomBarItem(
-                  icon: Icon(Icons.person),
-                  title: Text('Profile', style: GoogleFonts.sen()),
-                  selectedIcon: Icon(Icons.person_outline),
-                  selectedColor: Colors.orange,
-                  unSelectedColor: Colors.grey,
+                CustomBottomBar.customBottomItem(
+                  Icons.person_outline,
+                  'Profile',
+                  Icons.person,
                 ),
               ],
             ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:stylish_bottom_bar/stylish_bottom_bar.dart';
 
 class CustomBottomBar extends StatelessWidget {
@@ -12,7 +14,22 @@ class CustomBottomBar extends StatelessWidget {
       currentIndex: controller.currentIndex.value,
       onTap: (value) => controller.changeIndex(value),
       items: items,
-      option: BubbleBarOptions(),
+      option: BubbleBarOptions(padding: EdgeInsets.only(top: 5.h), opacity: .2),
+    );
+  }
+
+  static BottomBarItem customBottomItem(
+    IconData icon,
+    String title,
+    IconData selectedIcon,
+  ) {
+    return BottomBarItem(
+      icon: Icon(icon),
+      title: Text(title, style: GoogleFonts.sen()),
+      selectedIcon: Icon(selectedIcon),
+      selectedColor: Colors.orange,
+      unSelectedColor: Colors.grey,
+      backgroundColor: Colors.orange,
     );
   }
 }
