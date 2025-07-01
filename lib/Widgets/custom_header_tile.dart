@@ -1,3 +1,4 @@
+import 'package:bite_food_delivery/Screens/all_category_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -21,9 +22,7 @@ class CustomHeaderTile extends StatelessWidget {
       title: Text(title, style: GoogleFonts.sen(fontSize: 20.sp)),
       trailing: seeall
           ? TextButton.icon(
-              onPressed: () {
-                Get.to(() => pages);
-              },
+              onPressed: () => Get.to(() => pages!),
               label: Text(
                 'See All',
                 style: GoogleFonts.sen(fontSize: 17.sp, color: Colors.orange),

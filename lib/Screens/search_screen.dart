@@ -19,7 +19,7 @@ class SearchScreen extends StatelessWidget {
           child: Text(
             'Search',
             style: GoogleFonts.sen(
-              fontSize: 30.sp,
+              fontSize: 25.sp,
               fontWeight: FontWeight.bold,
             ),
           ),

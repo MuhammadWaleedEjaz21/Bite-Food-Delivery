@@ -1,5 +1,8 @@
 import 'package:bite_food_delivery/Models/category_model.dart';
 import 'package:bite_food_delivery/Models/restaurant_model.dart';
+import 'package:bite_food_delivery/Screens/all_category_screen.dart';
+import 'package:bite_food_delivery/Screens/all_restaurant.dart';
+import 'package:bite_food_delivery/Screens/cart_screen.dart';
 import 'package:bite_food_delivery/Widgets/category_card.dart';
 import 'package:bite_food_delivery/Widgets/custom_appbar.dart';
 import 'package:bite_food_delivery/Widgets/custom_header_tile.dart';
@@ -7,6 +10,7 @@ import 'package:bite_food_delivery/Widgets/custom_search_bar.dart';
 import 'package:bite_food_delivery/Widgets/restaurant_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -50,7 +54,9 @@ class HomeScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.to(() => CartScreen());
+            },
             style: IconButton.styleFrom(backgroundColor: Colors.black),
             icon: Icon(
               Icons.shopping_bag_outlined,
@@ -81,7 +87,11 @@ class HomeScreen extends StatelessWidget {
           15.verticalSpace,
           CustomSearchBar(),
           15.verticalSpace,
-          CustomHeaderTile(title: 'All Category', seeall: true),
+          CustomHeaderTile(
+            title: 'All Category',
+            seeall: true,
+            pages: AllCategoryScreen(),
+          ),
           15.verticalSpace,
           SizedBox(
             height: 140.h,
@@ -96,7 +106,11 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           15.verticalSpace,
-          CustomHeaderTile(title: 'All Restaurants', seeall: true),
+          CustomHeaderTile(
+            title: 'All Restaurants',
+            seeall: true,
+            pages: AllRestaurant(),
+          ),
           15.verticalSpace,
           ListView.builder(
             physics: NeverScrollableScrollPhysics(),

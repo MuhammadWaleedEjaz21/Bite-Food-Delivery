@@ -17,7 +17,7 @@ class AccountScreen extends StatelessWidget {
           child: Text(
             'Account',
             style: GoogleFonts.sen(
-              fontSize: 30.sp,
+              fontSize: 25.sp,
               fontWeight: FontWeight.bold,
             ),
           ),
