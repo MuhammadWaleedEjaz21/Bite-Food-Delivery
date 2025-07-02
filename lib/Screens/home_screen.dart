@@ -1,3 +1,4 @@
+import 'package:bite_food_delivery/Controllers/home_controller.dart';
 import 'package:bite_food_delivery/Models/category_model.dart';
 import 'package:bite_food_delivery/Models/restaurant_model.dart';
 import 'package:bite_food_delivery/Screens/all_category_screen.dart';
@@ -17,6 +18,7 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
   @override
   Widget build(BuildContext context) {
+    final controller = Get.find<HomeController>();
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: CustomAppBar(
@@ -67,68 +69,75 @@ class HomeScreen extends StatelessWidget {
           15.horizontalSpace,
         ],
       ),
-      body: ListView(
-        shrinkWrap: true,
-        padding: EdgeInsets.symmetric(horizontal: 20.w),
-        children: [
-          15.verticalSpace,
-          Row(
+      body: FutureBuilder(
+        future: controller.fetch,
+        builder: (context, asyncSnapshot) {
+          return ListView(
+            shrinkWrap: true,
+            padding: EdgeInsets.symmetric(horizontal: 20.w),
             children: [
-              Text('Hello Waleed,', style: GoogleFonts.sen(fontSize: 17.sp)),
-              Text(
-                ' Good Afternoon',
-                style: GoogleFonts.sen(
-                  fontSize: 17.sp,
-                  fontWeight: FontWeight.bold,
+              15.verticalSpace,
+              Row(
+                children: [
+                  Text(
+                    'Hello Waleed,',
+                    style: GoogleFonts.sen(fontSize: 17.sp),
+                  ),
+                  Text(
+                    ' Good Afternoon',
+                    style: GoogleFonts.sen(
+                      fontSize: 17.sp,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              15.verticalSpace,
+              CustomSearchBar(),
+              15.verticalSpace,
+              CustomHeaderTile(
+                title: 'All Category',
+                seeall: true,
+                pages: AllCategoryScreen(),
+              ),
+              15.verticalSpace,
+              SizedBox(
+                height: 140.h,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  shrinkWrap: true,
+                  itemCount: 3,
+                  itemBuilder: (context, index) {
+                    return CategoryCard(model: controller.categorylist[index]);
+                  },
                 ),
               ),
+              15.verticalSpace,
+              CustomHeaderTile(
+                title: 'All Restaurants',
+                seeall: true,
+                pages: AllRestaurant(),
+              ),
+              15.verticalSpace,
+              ListView.builder(
+                physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: 2,
+                itemBuilder: (context, index) {
+                  final model = RestaurantModel(
+                    name: 'Pizza Hut',
+                    category: 'Pizza',
+                    imageUrl: '',
+                    rating: 4.7,
+                    delivery: 49,
+                    time: 30,
+                  );
+                  return RestaurantCard(model: model);
+                },
+              ),
             ],
-          ),
-          15.verticalSpace,
-          CustomSearchBar(),
-          15.verticalSpace,
-          CustomHeaderTile(
-            title: 'All Category',
-            seeall: true,
-            pages: AllCategoryScreen(),
-          ),
-          15.verticalSpace,
-          SizedBox(
-            height: 140.h,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              shrinkWrap: true,
-              itemCount: 3,
-              itemBuilder: (context, index) {
-                final model = CategoryModel(name: 'Pizza', imageUrl: '');
-                return CategoryCard(model: model);
-              },
-            ),
-          ),
-          15.verticalSpace,
-          CustomHeaderTile(
-            title: 'All Restaurants',
-            seeall: true,
-            pages: AllRestaurant(),
-          ),
-          15.verticalSpace,
-          ListView.builder(
-            physics: NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: 2,
-            itemBuilder: (context, index) {
-              final model = RestaurantModel(
-                name: 'Pizza Hut',
-                category: 'Pizza',
-                imageUrl: '',
-                rating: 4.7,
-                delivery: 49,
-                time: 30,
-              );
-              return RestaurantCard(model: model);
-            },
-          ),
-        ],
+          );
+        },
       ),
     );
   }

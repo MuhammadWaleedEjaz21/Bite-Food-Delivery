@@ -1,3 +1,5 @@
+import 'package:bite_food_delivery/Controllers/category_selection_controller.dart';
+import 'package:bite_food_delivery/Controllers/home_controller.dart';
 import 'package:bite_food_delivery/Screens/account_screen.dart';
 import 'package:bite_food_delivery/Screens/home_screen.dart';
 import 'package:bite_food_delivery/Screens/search_screen.dart';
@@ -11,6 +13,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   Get.put(BottomBarController());
+  Get.put(HomeController());
+  Get.put(CategorySelectionController());
   runApp(MyApp());
 }
 
