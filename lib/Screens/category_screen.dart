@@ -1,6 +1,5 @@
 import 'package:bite_food_delivery/Controllers/category_selection_controller.dart';
 import 'package:bite_food_delivery/Controllers/home_controller.dart';
-import 'package:bite_food_delivery/Models/restaurant_model.dart';
 import 'package:bite_food_delivery/Widgets/custom_appbar.dart';
 import 'package:bite_food_delivery/Widgets/custom_drop_down.dart';
 import 'package:bite_food_delivery/Widgets/restaurant_card.dart';
