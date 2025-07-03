@@ -1,5 +1,4 @@
 import 'package:bite_food_delivery/Controllers/home_controller.dart';
-import 'package:bite_food_delivery/Models/category_model.dart';
 import 'package:bite_food_delivery/Widgets/category_card.dart';
 import 'package:bite_food_delivery/Widgets/custom_appbar.dart';
 import 'package:flutter/material.dart';

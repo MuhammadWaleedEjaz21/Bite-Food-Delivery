@@ -1,5 +1,6 @@
 import 'package:bite_food_delivery/Controllers/category_selection_controller.dart';
 import 'package:bite_food_delivery/Controllers/home_controller.dart';
+import 'package:bite_food_delivery/Controllers/upload_controller.dart';
 import 'package:bite_food_delivery/Screens/account_screen.dart';
 import 'package:bite_food_delivery/Screens/home_screen.dart';
 import 'package:bite_food_delivery/Screens/search_screen.dart';
@@ -15,6 +16,7 @@ void main() async {
   Get.put(BottomBarController());
   Get.put(HomeController());
   Get.put(CategorySelectionController());
+  Get.put(UploadController());
   runApp(MyApp());
 }
 

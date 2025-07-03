@@ -1,5 +1,5 @@
 import 'package:bite_food_delivery/Controllers/home_controller.dart';
-import 'package:bite_food_delivery/Models/category_model.dart';
+import 'package:bite_food_delivery/Controllers/upload_controller.dart';
 import 'package:bite_food_delivery/Models/restaurant_model.dart';
 import 'package:bite_food_delivery/Screens/all_category_screen.dart';
 import 'package:bite_food_delivery/Screens/all_restaurant.dart';
@@ -19,6 +19,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<HomeController>();
+    final upload = Get.find<UploadController>();
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: CustomAppBar(
@@ -44,7 +45,9 @@ class HomeScreen extends StatelessWidget {
                 elevation: 0,
               ),
               iconAlignment: IconAlignment.end,
-              onPressed: () {},
+              onPressed: () {
+                upload.uploadData();
+              },
               icon: Icon(Icons.arrow_drop_down, size: 25.r),
               label: Text(
                 'NFC Institute of Engineering and Technology, Multan',

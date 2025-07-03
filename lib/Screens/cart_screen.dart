@@ -1,6 +1,5 @@
 import 'package:bite_food_delivery/Widgets/cart_item.dart';
 import 'package:bite_food_delivery/Widgets/custom_appbar.dart';
-import 'package:bite_food_delivery/Widgets/custom_header_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
