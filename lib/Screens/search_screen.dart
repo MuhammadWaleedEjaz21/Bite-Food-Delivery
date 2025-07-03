@@ -1,16 +1,18 @@
-import 'package:bite_food_delivery/Models/restaurant_model.dart';
+import 'package:bite_food_delivery/Controllers/search_controller.dart';
 import 'package:bite_food_delivery/Widgets/custom_appbar.dart';
 import 'package:bite_food_delivery/Widgets/custom_header_tile.dart';
 import 'package:bite_food_delivery/Widgets/custom_search_bar.dart';
 import 'package:bite_food_delivery/Widgets/restaurant_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
   @override
   Widget build(BuildContext context) {
+    final controller = Get.find<SearchController2>();
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: CustomAppBar(
@@ -77,17 +79,9 @@ class SearchScreen extends StatelessWidget {
           ListView.builder(
             physics: NeverScrollableScrollPhysics(),
             shrinkWrap: true,
-            itemCount: 2,
+            itemCount: 5,
             itemBuilder: (context, index) {
-              final model = RestaurantModel(
-                name: 'Pizza Hut',
-                category: 'Pizza',
-                imageUrl: '',
-                rating: 4.7,
-                delivery: 49,
-                time: 30,
-              );
-              return RestaurantCard(model: model);
+              return RestaurantCard(model: controller.popularlist[index]);
             },
           ),
         ],

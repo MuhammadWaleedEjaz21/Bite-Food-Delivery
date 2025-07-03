@@ -1,4 +1,5 @@
 import 'package:bite_food_delivery/Models/restaurant_model.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -14,7 +15,10 @@ class RestaurantCard extends StatelessWidget {
         Container(
           height: 140.h,
           decoration: BoxDecoration(
-            color: Colors.grey,
+            image: DecorationImage(
+              image: NetworkImage(model.imageUrl),
+              fit: BoxFit.cover,
+            ),
             borderRadius: BorderRadius.circular(10.r),
           ),
         ),

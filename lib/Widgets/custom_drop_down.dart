@@ -4,7 +4,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomDropDown extends StatelessWidget {
-  const CustomDropDown({super.key, required this.items, required this.initial,required this.onSelected});
+  const CustomDropDown({
+    super.key,
+    required this.items,
+    required this.initial,
+    required this.onSelected,
+  });
 
   final List<CategoryModel> items;
   final String initial;
@@ -22,6 +27,7 @@ class CustomDropDown extends StatelessWidget {
           ),
 
           child: DropdownMenu(
+            onSelected: (value) => onSelected(value),
             menuStyle: MenuStyle(
               backgroundColor: WidgetStateProperty.all(Colors.white),
               shape: WidgetStateProperty.all(

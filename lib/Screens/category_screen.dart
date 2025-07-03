@@ -26,21 +26,15 @@ class CategoryScreen extends StatelessWidget {
           onSelected: (value) => catController.categorySelect(value),
         ),
       ),
-      body: ListView.builder(
-        padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 10.h),
-        shrinkWrap: true,
-        itemCount: 2,
-        itemBuilder: (context, index) {
-          final model = RestaurantModel(
-            name: 'Pizza Hut',
-            category: 'Pizza',
-            imageUrl: '',
-            rating: 4.7,
-            delivery: 49,
-            time: 30,
-          );
-          return RestaurantCard(model: model);
-        },
+      body: Obx(
+        () => ListView.builder(
+          padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 10.h),
+          shrinkWrap: true,
+          itemCount: catController.filteredlist.length,
+          itemBuilder: (context, index) {
+            return RestaurantCard(model: catController.filteredlist[index]);
+          },
+        ),
       ),
     );
   }

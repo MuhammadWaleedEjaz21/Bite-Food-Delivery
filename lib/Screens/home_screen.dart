@@ -1,6 +1,4 @@
 import 'package:bite_food_delivery/Controllers/home_controller.dart';
-import 'package:bite_food_delivery/Controllers/upload_controller.dart';
-import 'package:bite_food_delivery/Models/restaurant_model.dart';
 import 'package:bite_food_delivery/Screens/all_category_screen.dart';
 import 'package:bite_food_delivery/Screens/all_restaurant.dart';
 import 'package:bite_food_delivery/Screens/cart_screen.dart';
@@ -19,7 +17,6 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<HomeController>();
-    final upload = Get.find<UploadController>();
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: CustomAppBar(
@@ -45,9 +42,7 @@ class HomeScreen extends StatelessWidget {
                 elevation: 0,
               ),
               iconAlignment: IconAlignment.end,
-              onPressed: () {
-                upload.uploadData();
-              },
+              onPressed: () {},
               icon: Icon(Icons.arrow_drop_down, size: 25.r),
               label: Text(
                 'NFC Institute of Engineering and Technology, Multan',
@@ -75,71 +70,69 @@ class HomeScreen extends StatelessWidget {
       body: FutureBuilder(
         future: controller.fetch,
         builder: (context, asyncSnapshot) {
-          return ListView(
-            shrinkWrap: true,
-            padding: EdgeInsets.symmetric(horizontal: 20.w),
-            children: [
-              15.verticalSpace,
-              Row(
-                children: [
-                  Text(
-                    'Hello Waleed,',
-                    style: GoogleFonts.sen(fontSize: 17.sp),
-                  ),
-                  Text(
-                    ' Good Afternoon',
-                    style: GoogleFonts.sen(
-                      fontSize: 17.sp,
-                      fontWeight: FontWeight.bold,
+          if (asyncSnapshot.connectionState == ConnectionState.waiting) {
+            return Center(child: CircularProgressIndicator());
+          } else {
+            return ListView(
+              shrinkWrap: true,
+              padding: EdgeInsets.symmetric(horizontal: 20.w),
+              children: [
+                15.verticalSpace,
+                Row(
+                  children: [
+                    Text(
+                      'Hello Waleed,',
+                      style: GoogleFonts.sen(fontSize: 17.sp),
                     ),
+                    Text(
+                      ' Good Afternoon',
+                      style: GoogleFonts.sen(
+                        fontSize: 17.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                15.verticalSpace,
+                CustomSearchBar(),
+                15.verticalSpace,
+                CustomHeaderTile(
+                  title: 'All Category',
+                  seeall: true,
+                  pages: AllCategoryScreen(),
+                ),
+                15.verticalSpace,
+                SizedBox(
+                  height: 140.h,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    itemCount: 3,
+                    itemBuilder: (context, index) {
+                      return CategoryCard(
+                        model: controller.categorylist[index],
+                      );
+                    },
                   ),
-                ],
-              ),
-              15.verticalSpace,
-              CustomSearchBar(),
-              15.verticalSpace,
-              CustomHeaderTile(
-                title: 'All Category',
-                seeall: true,
-                pages: AllCategoryScreen(),
-              ),
-              15.verticalSpace,
-              SizedBox(
-                height: 140.h,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
+                ),
+                15.verticalSpace,
+                CustomHeaderTile(
+                  title: 'All Restaurants',
+                  seeall: true,
+                  pages: AllRestaurant(),
+                ),
+                15.verticalSpace,
+                ListView.builder(
+                  physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
-                  itemCount: 3,
+                  itemCount: 10,
                   itemBuilder: (context, index) {
-                    return CategoryCard(model: controller.categorylist[index]);
+                    return RestaurantCard(model: controller.randomlist[index]);
                   },
                 ),
-              ),
-              15.verticalSpace,
-              CustomHeaderTile(
-                title: 'All Restaurants',
-                seeall: true,
-                pages: AllRestaurant(),
-              ),
-              15.verticalSpace,
-              ListView.builder(
-                physics: NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: 2,
-                itemBuilder: (context, index) {
-                  final model = RestaurantModel(
-                    name: 'Pizza Hut',
-                    category: 'Pizza',
-                    imageUrl: '',
-                    rating: 4.7,
-                    delivery: 49,
-                    time: 30,
-                  );
-                  return RestaurantCard(model: model);
-                },
-              ),
-            ],
-          );
+              ],
+            );
+          }
         },
       ),
     );
