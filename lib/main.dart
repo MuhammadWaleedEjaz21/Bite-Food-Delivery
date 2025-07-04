@@ -1,8 +1,10 @@
 import 'package:bite_food_delivery/Controllers/category_selection_controller.dart';
 import 'package:bite_food_delivery/Controllers/home_controller.dart';
+import 'package:bite_food_delivery/Controllers/login_controller.dart';
 import 'package:bite_food_delivery/Controllers/search_controller.dart';
 import 'package:bite_food_delivery/Screens/account_screen.dart';
 import 'package:bite_food_delivery/Screens/home_screen.dart';
+import 'package:bite_food_delivery/Screens/login_screen.dart';
 import 'package:bite_food_delivery/Screens/search_screen.dart';
 import 'package:bite_food_delivery/Widgets/custom_bottom_bar.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -17,6 +19,7 @@ void main() async {
   Get.put(HomeController());
   Get.put(CategorySelectionController());
   Get.put(SearchController2());
+  Get.put(LoginController());
   runApp(MyApp());
 }
 
@@ -25,11 +28,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<BottomBarController>();
-    final List<Widget> screens = [
-      HomeScreen(),
-      SearchScreen(),
-      AccountScreen(),
-    ];
+    final List<Widget> screens = [HomeScreen(), SearchScreen(), LoginScreen()];
     return ScreenUtilInit(
       designSize: Size(375, 812),
       minTextAdapt: true,

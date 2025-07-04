@@ -1,5 +1,6 @@
 import 'package:bite_food_delivery/Models/category_model.dart';
 import 'package:bite_food_delivery/Screens/category_screen.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -29,7 +30,7 @@ class CategoryCard extends StatelessWidget {
                   width: 90.w,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: NetworkImage(model.imageUrl),
+                      image: CachedNetworkImageProvider(model.imageUrl),
                       fit: BoxFit.cover,
                     ),
                     borderRadius: BorderRadius.circular(20.r),

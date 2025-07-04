@@ -11,7 +11,7 @@ class SearchController2 extends GetxController {
     super.onInit();
     ever(home.restaurantlist, (_) {
       final filtered = home.restaurantlist
-          .where((item) => item.rating >= 4.5)
+          .where((item) => item.rating >= 4.7)
           .toList();
       popularlist.assignAll(filtered);
     });

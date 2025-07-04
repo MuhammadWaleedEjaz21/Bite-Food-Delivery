@@ -1,4 +1,5 @@
 import 'package:bite_food_delivery/Controllers/search_controller.dart';
+import 'package:bite_food_delivery/Screens/popular_restaurant.dart';
 import 'package:bite_food_delivery/Widgets/custom_appbar.dart';
 import 'package:bite_food_delivery/Widgets/custom_header_tile.dart';
 import 'package:bite_food_delivery/Widgets/custom_search_bar.dart';
@@ -74,7 +75,11 @@ class SearchScreen extends StatelessWidget {
             ),
           ),
           75.verticalSpace,
-          CustomHeaderTile(title: 'Popular Restaurants', seeall: true),
+          CustomHeaderTile(
+            title: 'Popular Restaurants',
+            seeall: true,
+            pages: PopularRestaurant(),
+          ),
           15.verticalSpace,
           ListView.builder(
             physics: NeverScrollableScrollPhysics(),

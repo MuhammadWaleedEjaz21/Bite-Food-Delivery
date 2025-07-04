@@ -38,23 +38,10 @@ class AccountScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Stack(
-                alignment: Alignment.bottomRight,
-                clipBehavior: Clip.none,
-                children: [
-                  CircleAvatar(
-                    backgroundColor: Colors.orange,
-                    radius: 60.r,
-                    child: Container(),
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    style: IconButton.styleFrom(
-                      backgroundColor: Colors.orange[50],
-                    ),
-                    icon: Icon(Icons.edit, color: Colors.orange),
-                  ),
-                ],
+              CircleAvatar(
+                backgroundColor: Colors.orange,
+                radius: 60.r,
+                child: Container(),
               ),
               10.horizontalSpace,
               Flexible(
